@@ -44,4 +44,11 @@ Feature: OrderAPI操作
     And 將此筆委託單刪除
     Examples: Option_Order
       | option_id | qty | price |
+  
+  Scenario Outline: 證券庫存查詢
+    Given 交易帳號"<account_id>"庫存類別"<ttype>"
+    When 執行證券庫存查詢
+    Then 得到證券未實現損益匯總
+
+    
       
