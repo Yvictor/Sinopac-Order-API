@@ -36,3 +36,12 @@ Feature: OrderAPI操作
       | future_id | qty | price  |
       | TXFL6     | -1  | 9371.0 |
       | EXFL6     | 2   | 374.65 |
+  
+  Scenario Outline: 建立選擇權委託單
+    Given 建立委託單"<option_id>"選擇權"<qty>"口"<price>"點
+    When 執行選擇權下單委託
+    Then 我們將會得到此筆委託單的委託回報
+    And 將此筆委託單刪除
+    Examples: Option_Order
+      | option_id | qty | price |
+      
